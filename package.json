@@ -46,6 +46,9 @@
     "loglevel",
     "anylogger"
   ],
+  "engines": {
+    "node": "<=16"
+  },
   "scripts": {
     "build": "webpack --mode production && node ./build.js",
     "clean": "rimraf ulog.min.js ulog.lazy.min.js full.min.js",
