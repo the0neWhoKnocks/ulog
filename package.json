@@ -53,6 +53,7 @@
     "build": "webpack --mode production && node ./build.js",
     "clean": "rimraf ulog.min.js ulog.lazy.min.js full.min.js",
     "test": "nyc tape test.js 2>&1 | tap-nirvana",
+    "test:watch": "tape-watch test.js --watch 2>&1 | tap-nirvana",
     "prepare": "npm run test -S && npm run clean -S && npm run build -S"
   },
   "dependencies": {
@@ -67,10 +68,8 @@
     "tap-nirvana": "^1.1.0",
     "tap-spec": "^5.0.0",
     "tape": "^5.3.1",
+    "tape-watch": "^2.3.0",
     "webpack": "^5.52.1",
     "webpack-cli": "^4.8.0"
-  },
-  "peerDependencies": {
-    "anylogger": "^1.0.10"
   }
 }
