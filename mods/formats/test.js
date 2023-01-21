@@ -4,7 +4,7 @@ var ulog = require('../../core')
 var formats = require('./')
 var levels = require('../levels')
 
-test('mod: formats', function(t) {
+test.only('mod: formats', function(t) {
   t.equal(typeof formats, 'object', 'is an object')
   t.ok(Array.isArray(formats.use), 'has a `use` array')
   t.equal(typeof formats.settings, 'object', 'has a `settings` object')
@@ -32,7 +32,25 @@ test('mod: formats', function(t) {
     t.end()
   })
 
-
+  t.test('Name Formatting', (t) => {
+    const { formats: { name } } = formats;
+    ulog.config.log_format = 'lvl name message';
+    ulog.use([formats]);
+    
+    const l = ulog('tst1');
+    ulog('aasfs');
+    // l.info('asdf');
+    console.log('--');
+    
+    // t.throws(
+    //   () => { name(); },
+    //   TypeError("Cannot read properties of undefined (reading 'text')")
+    // );
+    
+    // ulog.config.log_format = 'lvl name:0 message';
+    // console.log(name());
+    t.end()
+  });
 
   t.end()
 })
